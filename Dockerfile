@@ -1,15 +1,26 @@
-FROM eclipse-temurin:17-jdk-focal AS build
-WORKDIR /workspace/app
+FROM eclipse-temurin:17-jdk-focal
 
-COPY gradlew .
+WORKDIR /app
+
+# Gradle dosyalarını kopyala
 COPY gradle gradle
-COPY build.gradle.kts .
+COPY gradlew .
 COPY settings.gradle.kts .
+COPY build.gradle.kts .
 
-# Bağımlılıkları önbelleğe al
-RUN chmod +x ./gradlew
+# Gradle wrapper'a execute izni ver
+RUN chmod +x gradlew
+
+# Bağımlılıkları indir
 RUN ./gradlew dependencies --no-daemon
 
-# Kaynak kodlarını ekle ve derle
+# Kaynak kodunu kopyala
 COPY src src
+
+# Uygulamayı derle
 RUN ./gradlew bootJar --no-daemon
+
+EXPOSE 8080
+
+# Uygulamayı çalıştır
+ENTRYPOINT ["java", "-jar", "/app/build/libs/notes-api-0.0.1-SNAPSHOT.jar"]
