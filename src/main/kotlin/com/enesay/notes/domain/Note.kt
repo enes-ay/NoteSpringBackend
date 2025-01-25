@@ -13,7 +13,7 @@ data class Note(
     @Column(nullable = false)
     var title: String,
     
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(nullable = false)
     var content: String,
     
     @Column(nullable = false)
