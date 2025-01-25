@@ -58,5 +58,6 @@ tasks.withType<Test> {
 }
 
 tasks.bootJar {
+	enabled = true
 	archiveFileName.set("notes-api-0.0.1-SNAPSHOT.jar")
 }
