@@ -1,3 +1,11 @@
 .git
 .idea
-*.iml 
+*.iml
+.gradle
+build
+!build/libs/
+*.iws
+*.ipr
+out/
+.gitignore
+README.md 
