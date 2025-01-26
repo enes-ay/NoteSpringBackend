@@ -1,6 +1,10 @@
 .git
 .gradle
 build
-!build/libs
 .idea
-*.iml 
+*.iml
+node_modules
+npm-debug.log
+Dockerfile
+.gitignore
+README.md 
