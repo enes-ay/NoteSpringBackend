@@ -33,7 +33,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-	implementation("org.postgresql:postgresql:42.7.2")
+	implementation("mysql:mysql-connector-java:8.0.33")
 }
 
 kotlin {
@@ -58,6 +58,9 @@ tasks.withType<Test> {
 }
 
 tasks.bootJar {
-	enabled = true
 	archiveFileName.set("notes-api-0.0.1-SNAPSHOT.jar")
+}
+
+tasks.create("stage") {
+	dependsOn("bootJar")
 }

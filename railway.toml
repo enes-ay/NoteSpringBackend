@@ -1,0 +1,8 @@
+[build]
+builder = "GRADLE"
+buildCommand = "./gradlew bootJar"
+
+[deploy]
+startCommand = "java -jar build/libs/*-SNAPSHOT.jar"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10 

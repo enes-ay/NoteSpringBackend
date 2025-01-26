@@ -1,11 +1,6 @@
 .git
-.idea
-*.iml
 .gradle
 build
-!build/libs/
-*.iws
-*.ipr
-out/
-.gitignore
-README.md 
+!build/libs
+.idea
+*.iml 
