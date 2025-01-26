@@ -8,7 +8,7 @@ COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 
 # Bağımlılıkları indir ve bootJar'ı oluştur
-RUN gradle clean bootJar --no-daemon
+RUN ./gradlew clean bootJar --no-daemon
 
 # Production için daha hafif bir JDK image kullan
 FROM openjdk:17-jdk-slim
